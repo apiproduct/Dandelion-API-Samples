@@ -1,0 +1,97 @@
+// Example: Create draft order
+
+const axios = require('axios');
+
+let data = JSON.stringify({
+  "Ria": {
+    "ProductID": 111
+  },
+  "Transaction": {
+    "OrderDate": "20260325",
+    "OrderTime": "153000",
+    "OrderNo": "7407213330",
+    "CountryFrom": "SL",
+    "CountryTo": "PH",
+    "DeliveryMethod": 3,
+    "TransferReasonID": 711
+  },
+  "Quotation": {
+    "PaymentCurrency": "SLE",
+    "PaymentAmount": 1000,
+    "CustChargeCurrency": "SLE",
+    "CustChargeAmount": 42,
+    "BeneCurrency": "PHP",
+    "BeneAmount": 2538.63
+  },
+  "Customer": {
+    "RiaInformation": {
+      "AgentCustID": 232516,
+      "CustTypeID": 10
+    },
+    "PersonalInformation": {
+      "CustFirstName": "Adam",
+      "CustLastName": "Ali"
+    },
+    "Residence": {
+      "CustAddress": "123 Example Street",
+      "CustCity": "Bo",
+      "CustState": "SO",
+      "CustCountryofResidence": "SL"
+    },
+    "IdentityDocument": {
+      "CustID1Type": "National ID",
+      "CustID1No": "55555555555555",
+      "CustID1ExpirationDate": "20300826"
+    },
+    "ContactDetails": {
+      "CustCellNo": "23255555555"
+    }
+  },
+  "SendingPartner": {
+    "SendingCorrespBranchNo": "R-Sub-004"
+  },
+  "Beneficiary": {
+    "RiaInformation": {
+      "AgentBeneID": 232547,
+      "BeneTypeID": 10
+    },
+    "PersonalInformation": {
+      "BeneFirstName": "Maria",
+      "BeneLastName": "Santos"
+    },
+    "Residence": {
+      "BeneCountry": "PH",
+      "BeneCity": "Manila",
+      "BeneState": "NCR",
+      "BeneAddress": "123 Sample Avenue, Manila"
+    }
+  },
+  "PayoutPartner": {
+    "PayingCorrespID": 16509
+  }
+});
+
+let config = {
+  method: 'post',
+  maxBodyLength: Infinity,
+  url: 'https://mt-staging.dandelionpayments.com/SendOrders/Orders/Draft',
+  headers: {
+    'ria-CallerCorrelationId': 'demo-correlation-id',
+    'ria-CallDateTimeLocal': '20260325153000',
+    'ria-CallerUserId': 'demo-user',
+    'ria-AgentId': '548271936',
+    'Ocp-Apim-Subscription-Key': '<SUBSCRIPTION_KEY>',
+    'Ria-ApiVersion': 'v2',
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer <ACCESS_TOKEN>'
+  },
+  data: data
+};
+
+axios.request(config)
+  .then((response) => {
+    console.log(JSON.stringify(response.data));
+  })
+  .catch((error) => {
+    console.log(error);
+  });
