@@ -4,7 +4,7 @@ const axios = require('axios');
 
 let config = {
   method: 'get',
-  url: 'https://mt-staging.dandelionpayments.com/SendOrders/Countries/PH/Currencies/PHP/DeliveryMethods/3/Countries/PH/Currencies/PHP/SendingCorrespBranches/PH/AmountsAndReqs?PayingCorrespID=91889011&ProductID=111&AmountType=ForeignAmount&Amount=100',
+  url: 'https://mt-staging.dandelionpayments.com/SendOrders/Countries/SL/Currencies/SLE/DeliveryMethods/3/Countries/PH/Currencies/PHP/SendingCorrespBranches/R-Sub-004/AmountsAndReqs?PayingCorrespID=16509&ProductID=111&AmountType=LocalAmount&Amount=1000',
   headers: {
     'ria-CallerCorrelationId': 'demo-correlation-id',
     'ria-CallDateTimeLocal': '20260325153000',
