@@ -1,4 +1,4 @@
-// Example: Create order
+// Example: Create order with missing mobile wallet account number
 
 const axios = require('axios');
 
