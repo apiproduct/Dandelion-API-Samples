@@ -1,0 +1,22 @@
+// Example: Missing required custom headers
+
+const axios = require('axios');
+
+let config = {
+  method: 'get',
+  url: 'https://mt-staging.dandelionpayments.com/SendOrders/Countries/PH/Currencies/PHP/DeliveryMethods/2/Countries/CA/Currencies/CAD/SendingCorrespBranches/PH/AmountsAndReqs?ProductID=111&AmountType=ForeignAmount&Amount=100&BankID=5904201',
+  headers: {
+    'Ria-ApiVersion': 'v2',
+    'Ocp-Apim-Subscription-Key': '<SUBSCRIPTION_KEY>',
+    'Authorization': 'Bearer <ACCESS_TOKEN>',
+    'Content-Type': 'text/plain'
+  }
+};
+
+axios.request(config)
+  .then((response) => {
+    console.log(JSON.stringify(response.data));
+  })
+  .catch((error) => {
+    console.log(error);
+  });
